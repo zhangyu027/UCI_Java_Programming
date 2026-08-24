@@ -1,0 +1,2 @@
+package TeacherFinalProject;
+import java.util.*; public class Repository<T extends Identifiable> implements Iterable<T>{ private final Map<Integer,T> data=new HashMap<>(); public void add(T x)throws InvalidResourceException{if(data.containsKey(x.getId()))throw new InvalidResourceException("Duplicate id"); data.put(x.getId(),x);} public T get(int id){return data.get(id);} public java.util.List<T> all(){return new ArrayList<>(data.values());} public Iterator<T> iterator(){return all().iterator();} }
