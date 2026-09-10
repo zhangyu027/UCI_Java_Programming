@@ -1,0 +1,4 @@
+javac validation: PASS
+Java source files: 41
+
+Validated with javac in the build environment. Database programs compile against java.sql but require MariaDB Connector/J at runtime.

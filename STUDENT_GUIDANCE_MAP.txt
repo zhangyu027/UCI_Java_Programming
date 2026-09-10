@@ -1,0 +1,28 @@
+STUDENT GUIDANCE MAP
+====================
+
+02A Assignments Student
+- M1 Password: validation flags and Character methods
+- M1 Sales: file-reading and accumulation workflow
+- M2 Swing Task Tracker: GUI/event/persistence sequence
+- M3 Classes/Objects: Student vs School responsibilities
+- M3 Exceptions: built-in and custom exception flow
+- M4 Database: Db.getConnection(), JDBC sequence, Students schema, PreparedStatement
+- M5 Recursion: base case and recursive case
+
+03A In-Class Student
+- M2 file/Swing incremental practice
+- M3 OOP/polymorphism/exception guidance
+- M4 Swing, exceptions, and JDBC guidance
+- M5 recursion tracing guidance
+
+04A Final Project Student
+- SetupCheck -> SQL -> Connector/J -> environment variables -> connection test
+- DatabaseManager -> LibraryService -> Main implementation order
+- books schema and safe checkout checkpoint
+
+05A Midterm Student Study
+- Study checkpoints for fundamentals, OOP, exceptions, Swing, and JDBC
+
+Instructor projects contain complete reference implementations and are intended
+to remain private.

@@ -1,0 +1,22 @@
+ECLIPSE IMPORT GUIDE
+====================
+
+1. Start Eclipse with a LOCAL workspace:
+   /Users/yuzhang/Documents/Eclipse_Workspaces/UCI_X460.17_JavaProgramming
+
+2. File > Open Projects from File System...
+
+3. Import the specific Student/Instructor project folders listed in
+   00_README_FIRST.txt.
+
+4. Keep:
+   Preferences > General > Workspace
+   [x] Refresh using native hooks or polling
+   [x] Refresh on access
+
+5. Do not import the course root as one Eclipse project.
+
+6. For MariaDB runtime projects, add MariaDB Connector/J to:
+   Project > Properties > Java Build Path > Libraries > Classpath
+
+7. Set UCI_DB_PASSWORD in Run Configurations > Environment.

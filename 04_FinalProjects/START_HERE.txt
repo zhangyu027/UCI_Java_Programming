@@ -1,0 +1,40 @@
+UCI I&C SCI X460.17 — FINAL PROJECT COMPLETE PACKAGE
+====================================================
+
+01_Student/
+    UCI_Java_Final_Project_Student
+    - Eclipse-ready guided starter
+    - TODO / HINT / ANSWER CHECKPOINT comments
+    - no completed CRUD answer key
+
+02_Instructor_Private/
+    UCI_Java_Final_Project_Instructor
+    - complete reference implementation
+    - keep private
+
+03_Course_Requirements_and_Guides/
+    - original rubric / pseudocode / team / MariaDB references from the
+      supplied final-project package
+
+STANDARD ENVIRONMENT
+--------------------
+Eclipse + JavaSE-21 + MariaDB + MariaDB Connector/J 3.5.9
+
+WORKSPACE
+---------
+Use a LOCAL Eclipse workspace/project folder.
+Do not use Google Drive as the active Eclipse workspace.
+Google Drive is appropriate for distribution, backup, and submission.
+
+DATABASE
+--------
+library_db.books(
+    id,
+    title,
+    author,
+    available_copies
+)
+
+FINAL PROJECT FUNCTIONS
+-----------------------
+Add / Remove / Search / Checkout / Return / List All / Persistent Storage

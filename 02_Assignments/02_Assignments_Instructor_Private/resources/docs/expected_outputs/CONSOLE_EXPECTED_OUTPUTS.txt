@@ -1,0 +1,54 @@
+Representative console results
+==============================
+PasswordVerifier
+- Input: Abcdefg1
+- Output: Valid password.
+
+WeeklySalesAnalysis (bundled sample data)
+Week 1 total: 1052.25 | daily average: 150.32
+Week 2 total: 840.00 | daily average: 120.00
+Week 3 total: 1610.00 | daily average: 230.00
+All weeks total: 3502.25
+Average weekly sales: 1167.42
+Highest sales week: 3
+Lowest sales week: 2
+
+M3 Classes/Objects
+Ava (#1) avg=92.00 grade=A
+Ben (#2) avg=75.80 grade=C
+Cara (#3) avg=84.80 grade=B
+Highest: Ava (#1) avg=92.00 grade=A
+Lowest: Ben (#2) avg=75.80 grade=C
+
+InheritanceDemo
+Student: Mia
+Woof
+
+PolymorphismDemo
+Area=12.57
+Area=12.00
+
+Checked / unchecked / custom exception demos
+100
+200
+300
+Cannot divide by zero.
+Handled: Number must be positive.
+
+SumOfDigits
+Sum of digits of 12345 = 15
+
+Power
+2^10 = 1024
+
+Palindrome
+racecar palindrome = true
+
+TowerOfHanoi with 3 disks
+7 move lines, beginning with "Move disk 1 from A to C" and ending with "Move disk 1 from A to C".
+
+Swing programs
+Expected result is functional UI behavior rather than a fixed console string. See TEACHING_AND_GRADING_GUIDE.md.
+
+Database programs
+Expected data depends on the local MariaDB database. Verify table creation/CRUD using the application and then query the tables directly in MariaDB.

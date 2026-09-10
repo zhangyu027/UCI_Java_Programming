@@ -1,0 +1,8 @@
+OK: M1_Java_Knowledge_for_Password_Verifier_Project.pptx -> PDF
+OK: M1_Java_Knowledge_for_Weekly_Sales_Analysis_Project.pptx -> PDF
+OK: M2_Java_OOP_Introduction.pptx -> PDF
+OK: M2_Java_Swing.pptx -> PDF
+OK: M3_Java_Inheritance.pptx -> PDF
+NOTE: M3_Java_Exception_Control.pptx kept as original PPT/PPTX; PDF conversion was skipped/unavailable in this environment.
+NOTE: M4_Java_Polymorphism.pptx kept as original PPT/PPTX; PDF conversion was skipped/unavailable in this environment.
+OK: M4_Java Database JDBC.ppt -> PDF

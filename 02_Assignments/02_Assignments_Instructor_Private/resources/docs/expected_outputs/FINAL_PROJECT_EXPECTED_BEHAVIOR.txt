@@ -1,0 +1,19 @@
+Library Management System reference behavior
+============================================
+On successful database connection the console menu offers:
+1 Add book
+2 Remove book
+3 Search
+4 Check out
+5 Return
+6 List all
+0 Exit
+
+Add book validates ID/title/author/copies and inserts into MariaDB.
+Remove book deletes by unique book ID.
+Search matches title or author case-insensitively.
+Check out decrements available_copies only when copies > 0.
+Return increments available_copies.
+List all displays ID | title | author | copies.
+
+This directly supports the supplied final-project practice requirements for add/remove/search, checkout/return, persistent MariaDB storage, and a text-based UI.

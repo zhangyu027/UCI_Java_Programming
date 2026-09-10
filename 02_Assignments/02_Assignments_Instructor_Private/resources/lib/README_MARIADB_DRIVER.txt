@@ -1,0 +1,1 @@
+Do not place a licensed/third-party JAR in this package. Download the MariaDB Connector/J JAR from MariaDB and add it to Eclipse: Project > Properties > Java Build Path > Libraries > Add External JARs. The source uses only java.sql APIs, so it compiles without the JAR; the JAR is required at runtime to connect to MariaDB.

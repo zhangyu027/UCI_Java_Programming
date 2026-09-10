@@ -1,0 +1,32 @@
+package instructor.inclass.m3.basics;
+
+public class Car {
+    private String make, model;
+    private int year;
+    public Car(String make, String model, int year) {
+        this.make=make;
+        this.model=model;
+        this.year=year;
+    }
+    public String getMake() {
+        return make;
+    }
+    public void setMake(String x) {
+        make=x;
+    }
+    public String getModel() {
+        return model;
+    }
+    public void setModel(String x) {
+        model=x;
+    }
+    public int getYear() {
+        return year;
+    }
+    public void setYear(int y) {
+        year=y;
+    }
+    public void drive() {
+        System.out.println(year+" "+make+" "+model+" is driving.");
+    }
+}

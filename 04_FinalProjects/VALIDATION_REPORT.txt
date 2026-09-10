@@ -1,0 +1,21 @@
+FINAL PROJECT PACKAGE VALIDATION
+================================
+
+Student Java compile check: PASS
+Instructor Java compile check: PASS
+
+Student compile details:
+No javac errors.
+
+Instructor compile details:
+No javac errors.
+
+Runtime MariaDB test was not executed in this sandbox because it does not use
+your local MariaDB server or local credentials.
+
+On the instructor Mac, the final runtime checkpoint is:
+1. Add Connector/J to Classpath.
+2. Set Eclipse environment variables.
+3. Run DatabaseConnectionTest.
+4. Run Main.
+5. Verify persistence after restart.
