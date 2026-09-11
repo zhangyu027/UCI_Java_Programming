@@ -1,0 +1,73 @@
+UCI Java Programming - Codespaces MariaDB Setup
+================================================
+
+THIS PACKAGE USES A VISIBLE FOLDER NAME SO macOS/FINDER WILL SHOW ALL FILES.
+
+YOU SHOULD SEE:
+DEVCONTAINER_FILES/
+  devcontainer.json
+  Dockerfile
+  setup-db.sh
+  init.sql
+
+INSTALL LOCATION
+----------------
+In your GitHub repository root:
+
+UCI_Java_Programming/
+  .devcontainer/
+    devcontainer.json
+    Dockerfile
+    setup-db.sh
+    init.sql
+  01_Syllabus/
+  02_Assignments/
+  03_Inclass_Practice/
+  04_FinalProjects/
+  05_MidTerms/
+  06_Quizzes/
+  07_Slides/
+  08_Readings/
+  pom.xml
+  README.md
+
+HOW TO INSTALL IN CODESPACES
+----------------------------
+1. In the repository root, create a new folder named:
+   .devcontainer
+
+2. Copy these four files from DEVCONTAINER_FILES into .devcontainer:
+   devcontainer.json
+   Dockerfile
+   setup-db.sh
+   init.sql
+
+3. Confirm the final paths are exactly:
+   /workspaces/UCI_Java_Programming/.devcontainer/devcontainer.json
+   /workspaces/UCI_Java_Programming/.devcontainer/Dockerfile
+   /workspaces/UCI_Java_Programming/.devcontainer/setup-db.sh
+   /workspaces/UCI_Java_Programming/.devcontainer/init.sql
+
+4. Commit and push:
+   git add .devcontainer
+   git commit -m "Add Codespaces MariaDB classroom environment"
+   git push
+
+5. Rebuild:
+   Cmd/Ctrl + Shift + P
+   Codespaces: Rebuild Container
+   Rebuild
+
+6. Verify:
+   mariadb -u javauser -pJavaClass2026 -e "SHOW DATABASES;"
+   mvn -DskipTests compile
+
+7. Run DatabaseConnectionTest.java again.
+
+NOTES
+-----
+- Java may remain Java 25 in Codespaces.
+- Maven projects should remain configured for release 21 compatibility.
+- MariaDB Connector/J remains managed by Maven.
+- JavaClass2026 is a disposable classroom-only Codespaces password.
+- Do NOT use your personal/local MariaDB password here.

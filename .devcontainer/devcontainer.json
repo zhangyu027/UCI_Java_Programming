@@ -1,0 +1,23 @@
+{
+  "name": "UCI Java Programming",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup-db.sh",
+  "remoteEnv": {
+    "UCI_DB_USER": "javauser",
+    "UCI_DB_PASSWORD": "JavaClass2026",
+    "UCI_DB_URL": "jdbc:mariadb://127.0.0.1:3306/University",
+    "UCI_LIBRARY_DB_URL": "jdbc:mariadb://127.0.0.1:3306/library_db"
+  }
+}
