@@ -5,13 +5,6 @@
     "dockerfile": "Dockerfile"
   },
 
-  "features": {
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "21",
-      "installMaven": true
-    }
-  },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -24,6 +17,7 @@
   },
 
   "postCreateCommand": "bash .devcontainer/setup-db.sh",
+  "postStartCommand": "sudo service mariadb start >/dev/null 2>&1 || true",
 
   "remoteEnv": {
     "UCI_DB_USER": "javauser",
