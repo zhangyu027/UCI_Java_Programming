@@ -1,11 +1,14 @@
-FROM mcr.microsoft.com/devcontainers/universal:2-linux
+FROM mcr.microsoft.com/devcontainers/java:3-21-bookworm
 
-RUN sudo rm -f /etc/apt/sources.list.d/yarn.list \
-    /etc/apt/sources.list.d/yarnpkg.list \
-    && sudo apt-get update \
-    && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+USER root
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        maven \
         mariadb-server \
         mariadb-client \
         git-lfs \
-    && sudo apt-get clean \
-    && sudo rm -rf /var/lib/apt/lists/*
+    && git lfs install --system \
+    && rm -rf /var/lib/apt/lists/*
+
+USER vscode
