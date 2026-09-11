@@ -1,19 +1,19 @@
 package instructor.inclass.m3.polymorphism;
-interface Shape_p {
+interface ShapeLegacy {
     double area();
 }
-class Circle_p implements Shape_p {
+class CircleLegacy implements ShapeLegacy {
     double r;
-    Circle_p(double r) {
+    CircleLegacy(double r) {
         this.r=r;
     }
     public double area() {
         return Math.PI*r*r;
     }
 }
-class Rectangle_p implements Shape_p {
+class RectangleLegacy implements ShapeLegacy {
     double w, h;
-    Rectangle_p(double w, double h) {
+    RectangleLegacy(double w, double h) {
         this.w=w;
         this.h=h;
     }
@@ -23,10 +23,10 @@ class Rectangle_p implements Shape_p {
 }
 public class polymorphism {
     public static void main(String[]a) {
-        Shape_p[] s= {
-          new Circle_p(2), new Rectangle_p(3, 4)   
+        ShapeLegacy[] s= {
+          new CircleLegacy(2), new RectangleLegacy(3, 4)   
         };
-        for (Shape_p x:s)System.out.printf("Area=%.2f%n", x.area());
+        for (ShapeLegacy x:s)System.out.printf("Area=%.2f%n", x.area());
     }
 }
 

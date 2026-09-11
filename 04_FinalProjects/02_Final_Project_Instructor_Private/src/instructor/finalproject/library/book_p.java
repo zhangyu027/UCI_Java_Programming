@@ -1,5 +1,4 @@
 package instructor.finalproject.library;
-import java.security.PrivateKey;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -76,7 +75,7 @@ public class book_p {
         scanner.nextLine();
         System.out.print("Author: ");
         String author =
-        scanner,nextLine();
+        scanner.nextLine();
         int copies =
         intPrompt(
         "Available copies:	");
@@ -112,9 +111,14 @@ public class book_p {
         printBooks(
         service.search(term));
     }
-    private void printBooks(List<Book> search) {
-        // TODO Auto-generated method stub
-        
+    private void printBooks(List<Book> books) {
+        if (books.isEmpty()) {
+            System.out.println("No books found.");
+            return;
+        }
+        for (Book book : books) {
+            System.out.println(book);
+        }
     }
     private void checkoutWorkflow()
     throws SQLException {

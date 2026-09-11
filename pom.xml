@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.uci.dce.x46017</groupId>
+  <artifactId>uci-java-programming-codespaces</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>02_Assignments/01_Assignments_Student</module>
+    <module>02_Assignments/02_Assignments_Instructor_Private</module>
+    <module>03_Inclass_Practice/01_InClass_Student</module>
+    <module>03_Inclass_Practice/02_InClass_Instructor_Private</module>
+    <module>04_FinalProjects/01_Final_Project_Student</module>
+    <module>04_FinalProjects/02_Final_Project_Instructor_Private</module>
+    <module>05_MidTerms/01_Midterm_Student_Study</module>
+    <module>05_MidTerms/02_Midterm_Instructor_Private</module>
+  </modules>
+</project>

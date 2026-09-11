@@ -1,0 +1,49 @@
+UCI Java Programming - Codespaces Validation Report
+====================================================
+
+Validation date: 2026-09-11
+Target runtime: Java 21
+
+Completed fixes
+---------------
+1. Removed machine-specific MariaDB JAR paths such as /Users/yuzhang/...
+2. Added Maven pom.xml files to all eight student/instructor teaching projects.
+3. Added a root Maven aggregator pom.xml.
+4. Added GitHub Codespaces Java 21 devcontainer configuration.
+5. Added automatic MariaDB service/database initialization for Codespaces.
+6. Added browser desktop support (noVNC on port 6080) for Swing/AWT programs.
+7. Added portable data/ folders for file-I/O exercises.
+8. Fixed syntax/compile defects in:
+   - 05_MidTerms/01_Midterm_Student_Study/.../ExceptionReview.java
+   - 03_Inclass_Practice/02_InClass_Instructor_Private/.../personal_p.java
+   - 03_Inclass_Practice/02_InClass_Instructor_Private/.../polymorphism.java
+   - 04_FinalProjects/02_Final_Project_Instructor_Private/.../book_p.java
+   - 04_FinalProjects/02_Final_Project_Instructor_Private/.../LibraryService_p.java
+9. Fixed instructor WeeklySalesAnalysis CSV parsing to accept commas with or without spaces.
+10. Removed personal absolute paths from top-level setup documentation.
+11. Added VS Code Java/Maven workspace settings and exclusions for non-code course assets.
+
+Compilation validation
+----------------------
+All Java source files in all eight teaching projects compile successfully with javac --release 21:
+- 02_Assignments/01_Assignments_Student
+- 02_Assignments/02_Assignments_Instructor_Private
+- 03_Inclass_Practice/01_InClass_Student
+- 03_Inclass_Practice/02_InClass_Instructor_Private
+- 04_FinalProjects/01_Final_Project_Student
+- 04_FinalProjects/02_Final_Project_Instructor_Private
+- 05_MidTerms/01_Midterm_Student_Study
+- 05_MidTerms/02_Midterm_Instructor_Private
+
+Runtime smoke test
+------------------
+Instructor M1 WeeklySalesAnalysis was compiled and run successfully against data/sales_data.txt.
+Expected totals were produced, including all-weeks total 3502.25, highest week 3, lowest week 2.
+
+Codespaces note
+---------------
+The container build itself was not executed in this packaging environment because Docker/Maven are not installed here. The devcontainer JSON and VS Code JSON files were syntax-validated, and all Java source projects were compile-validated directly with Java 21.
+
+Security/distribution note
+--------------------------
+This master archive contains instructor-private solutions. Do not publish the complete archive to a public student repository. Use a private instructor repository for the master package and a separate student/Classroom repository for student materials.

@@ -14,7 +14,7 @@ public class WeeklySalesAnalysis {
         for (String line: lines) {
             if (line.isBlank()) continue;
             week++;
-            String[] parts=line.split(", ");
+            String[] parts=line.split("\\s*,\\s*");
             double total=0;
             for (String p:parts) total += Double.parseDouble(p.trim());
             double avg=total/parts.length;

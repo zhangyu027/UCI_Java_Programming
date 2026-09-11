@@ -8,7 +8,7 @@ IMPORTANT
 The COURSE folder may live in Google Drive.
 The ECLIPSE WORKSPACE metadata should stay local, for example:
 
-/Users/yuzhang/Documents/Eclipse_Workspaces/UCI_X460.17_JavaProgramming
+<your local Eclipse workspace>/UCI_X460.17_JavaProgramming
 
 Do not use this entire course folder itself as the Eclipse workspace.
 

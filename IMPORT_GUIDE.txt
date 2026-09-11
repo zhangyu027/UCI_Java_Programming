@@ -2,7 +2,7 @@ ECLIPSE IMPORT GUIDE
 ====================
 
 1. Start Eclipse with a LOCAL workspace:
-   /Users/yuzhang/Documents/Eclipse_Workspaces/UCI_X460.17_JavaProgramming
+   <your local Eclipse workspace>/UCI_X460.17_JavaProgramming
 
 2. File > Open Projects from File System...
 

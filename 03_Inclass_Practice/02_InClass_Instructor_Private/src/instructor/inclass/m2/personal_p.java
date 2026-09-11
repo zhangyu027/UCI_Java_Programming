@@ -7,7 +7,7 @@ import java.util.*;
 
 public class personal_p extends JFrame {
     private final JTextField[] fields = {
-            new JTextField(), newJTextField(), new JTextField(), new JTextField(), new JTextField()
+            new JTextField(), new JTextField(), new JTextField(), new JTextField(), new JTextField()
     };
     private final Path path = Path.of("data", "personal_info.txt");
     public personal_p() {
@@ -41,9 +41,10 @@ public class personal_p extends JFrame {
         }
         try {
             Files.createDirectories(path.getParent());
-            Object StandardOpenOtion;
-            Files.writeString(path, String.join("|", Arrays.stream(fields).map(JTextField::getText).toList() +System.lineSeparator(),
-                    StandardOpenOtion.CREATE, StandardOpenOption.APPEND);
+            String line = String.join("|", Arrays.stream(fields)
+                    .map(JTextField::getText)
+                    .toList()) + System.lineSeparator();
+            Files.writeString(path, line, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             JOptionPane.showMessageDialog(this, "Saved.");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -61,6 +62,6 @@ public class personal_p extends JFrame {
         }
     }
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(()->new personal().setVisible(true));
+        SwingUtilities.invokeLater(() -> new personal_p().setVisible(true));
     }
 }

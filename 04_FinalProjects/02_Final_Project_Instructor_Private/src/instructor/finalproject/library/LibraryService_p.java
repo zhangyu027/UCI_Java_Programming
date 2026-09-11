@@ -74,7 +74,7 @@ public class LibraryService_p {
             try(ResultSet rs =
             ps.executeQuery()) {
                 while (rs.next()) {
-                    book.add(
+                    books.add(
                     mapBook(rs));
                 }
             }
