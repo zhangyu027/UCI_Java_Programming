@@ -1,4 +1,4 @@
-package inclass.m4.exceptions;
+package instructor.inclass.m4.exceptions;
 
 class NegativeNumberException extends Exception {
     private static final long serialVersionUID = 1L;

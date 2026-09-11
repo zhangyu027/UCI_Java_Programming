@@ -1,4 +1,4 @@
-package inclass.m4.exceptions;
+package instructor.inclass.m4.exceptions;
 
 /** Demonstrates an unchecked ArithmeticException. */
 public class UncheckedExceptionDemo {

@@ -1,4 +1,4 @@
-package inclass.m4.db;
+package instructor.inclass.m4.db;
 
 import java.awt.GridLayout;
 import java.sql.Connection;

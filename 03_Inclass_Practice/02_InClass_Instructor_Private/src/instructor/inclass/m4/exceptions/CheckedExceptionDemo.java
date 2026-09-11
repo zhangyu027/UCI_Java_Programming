@@ -1,4 +1,4 @@
-package inclass.m4.exceptions;
+package instructor.inclass.m4.exceptions;
 
 import java.io.IOException;
 import java.nio.file.Files;
