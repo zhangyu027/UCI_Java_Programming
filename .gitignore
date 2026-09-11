@@ -1,1 +1,5 @@
 .DS_Store
+
+# Java/Maven generated build folders
+**/bin/
+**/target/
