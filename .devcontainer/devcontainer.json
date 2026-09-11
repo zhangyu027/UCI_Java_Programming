@@ -16,10 +16,19 @@
     }
   },
 
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Swing Desktop (noVNC)",
+      "onAutoForward": "notify"
+    }
+  },
+
   "postCreateCommand": "bash .devcontainer/setup-db.sh",
-  "postStartCommand": "sudo service mariadb start >/dev/null 2>&1 || true",
+  "postStartCommand": "bash .devcontainer/start-services.sh",
 
   "remoteEnv": {
+    "DISPLAY": ":1",
     "UCI_DB_USER": "javauser",
     "UCI_DB_PASSWORD": "JavaClass2026",
     "UCI_DB_URL": "jdbc:mariadb://127.0.0.1:3306/University",
