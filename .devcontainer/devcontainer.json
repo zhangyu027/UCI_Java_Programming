@@ -1,8 +1,17 @@
 {
   "name": "UCI Java Programming",
+
   "build": {
     "dockerfile": "Dockerfile"
   },
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": true
+    }
+  },
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +22,9 @@
       }
     }
   },
+
   "postCreateCommand": "bash .devcontainer/setup-db.sh",
+
   "remoteEnv": {
     "UCI_DB_USER": "javauser",
     "UCI_DB_PASSWORD": "JavaClass2026",
