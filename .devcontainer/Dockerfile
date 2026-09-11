@@ -8,6 +8,14 @@ RUN apt-get update \
         mariadb-server \
         mariadb-client \
         git-lfs \
+        xvfb \
+        x11vnc \
+        openbox \
+        novnc \
+        websockify \
+        xterm \
+        dbus-x11 \
+        fonts-dejavu-core \
     && git lfs install --system \
     && rm -rf /var/lib/apt/lists/*
 
