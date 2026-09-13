@@ -9,6 +9,7 @@ RUN apt-get update \
         mariadb-client \
         git-lfs \
         xvfb \
+        x11-utils \
         x11vnc \
         openbox \
         novnc \
@@ -16,6 +17,7 @@ RUN apt-get update \
         xterm \
         dbus-x11 \
         fonts-dejavu-core \
+        curl \
     && git lfs install --system \
     && rm -rf /var/lib/apt/lists/*
 
