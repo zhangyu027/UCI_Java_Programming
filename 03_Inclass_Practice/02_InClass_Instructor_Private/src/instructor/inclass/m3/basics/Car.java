@@ -1,32 +1,26 @@
 package instructor.inclass.m3.basics;
 
+/** Canvas-aligned Module 3 basic class example. */
 public class Car {
-    private String make, model;
-    private int year;
-    public Car(String make, String model, int year) {
-        this.make=make;
-        this.model=model;
-        this.year=year;
+    private String make;
+    private String model;
+
+    public Car(String make, String model) {
+        this.make = make;
+        this.model = model;
     }
-    public String getMake() {
-        return make;
+
+    public void start() {
+        System.out.println(make + " " + model + " is starting.");
     }
-    public void setMake(String x) {
-        make=x;
-    }
-    public String getModel() {
-        return model;
-    }
-    public void setModel(String x) {
-        model=x;
-    }
-    public int getYear() {
-        return year;
-    }
-    public void setYear(int y) {
-        year=y;
-    }
+
     public void drive() {
-        System.out.println(year+" "+make+" "+model+" is driving.");
+        System.out.println(make + " " + model + " is driving.");
+    }
+
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Camry");
+        car.start();
+        car.drive();
     }
 }
