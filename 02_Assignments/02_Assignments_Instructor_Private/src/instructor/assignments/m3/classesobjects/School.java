@@ -1,18 +1,32 @@
 package instructor.assignments.m3.classesobjects;
 
+/** Complete reference for the Canvas Module 3 School homework. */
 public class School {
-    private final Student[] students;
-    public School(Student[] s) {
-        students=s.clone();
+    private Student[] students;
+
+    public School(Student[] students) {
+        this.students = students.clone();
     }
+
     public Student getStudentWithHighestAverage() {
-        Student best=students[0];
-        for (Student s:students)if (s.getAverageMarks()>best.getAverageMarks())best=s;
-        return best;
+        if (students.length == 0) return null;
+        Student highest = students[0];
+        for (Student student : students) {
+            if (student.getAverageMarks() > highest.getAverageMarks()) {
+                highest = student;
+            }
+        }
+        return highest;
     }
+
     public Student getStudentWithLowestAverage() {
-        Student low=students[0];
-        for (Student s:students)if (s.getAverageMarks()<low.getAverageMarks())low=s;
-        return low;
+        if (students.length == 0) return null;
+        Student lowest = students[0];
+        for (Student student : students) {
+            if (student.getAverageMarks() < lowest.getAverageMarks()) {
+                lowest = student;
+            }
+        }
+        return lowest;
     }
 }
