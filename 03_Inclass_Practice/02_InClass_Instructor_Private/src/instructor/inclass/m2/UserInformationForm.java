@@ -2,37 +2,66 @@ package instructor.inclass.m2;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class UserInformationForm extends JFrame {
+public class UserInformationForm {
+    private JFrame frame;
+    private JTextField nameField;
+    private JTextField emailField;
+    private JTextArea resultArea;
+
     public UserInformationForm() {
-        super("User Information");
-        JTextField name = new JTextField();
-        JTextField email = new JTextField();
-        JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
-        panel.add(new JLabel("Name"));
-        panel.add(name);
-        panel.add(new JLabel("Email"));
-        panel.add(email);
-        JButton submit = new JButton("Submit");
-        JButton clear = new JButton("Clear");
-        submit.addActionListener(e -> {
-            if (name.getText().isBlank() || email.getText().isBlank()) {
-                JOptionPane.showMessageDialog(this, "All fields are required.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Name: " + name.getText() + "\nEmail: " + email.getText());
+        frame = new JFrame("User Information Form");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
+
+        JPanel formPanel = new JPanel(new GridLayout(3, 2));
+        nameField = new JTextField(20);
+        emailField = new JTextField(20);
+        JButton submitButton = new JButton("Submit");
+        JButton clearButton = new JButton("Clear");
+
+        resultArea = new JTextArea(5, 40);
+        resultArea.setEditable(false);
+        resultArea.setLineWrap(true);
+
+        formPanel.add(new JLabel("Name:"));
+        formPanel.add(nameField);
+        formPanel.add(new JLabel("Email:"));
+        formPanel.add(emailField);
+        formPanel.add(submitButton);
+        formPanel.add(clearButton);
+
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText();
+                String email = emailField.getText();
+                String result = "Name: " + name + "\nEmail: " + email;
+                resultArea.setText(result);
             }
         });
-        clear.addActionListener(e -> {
-            name.setText(""); email.setText("");
+
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                nameField.setText("");
+                emailField.setText("");
+                resultArea.setText("");
+            }
         });
-        panel.add(submit);
-        panel.add(clear);
-        add(panel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(420, 180);
-        setLocationRelativeTo(null);
+
+        frame.add(formPanel, BorderLayout.NORTH);
+        frame.add(new JScrollPane(resultArea), BorderLayout.CENTER);
+
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new UserInformationForm().setVisible(true));
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new UserInformationForm();
+            }
+        });
     }
 }
