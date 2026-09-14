@@ -1,19 +1,26 @@
 package instructor.inclass.m3.exceptions;
 
-class AgeException extends Exception {
-    AgeException(String m) {
-        super(m);
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
     }
 }
+
+/** Canvas Example 2: Custom Exception. */
 public class CustomExceptionExample {
-    static void validate(int age)throws AgeException {
-        if (age<0||age>130)throw new AgeException("Age must be between 0 and 130.");
-    }
     public static void main(String[] args) {
         try {
-            validate(150);
-        } catch (AgeException e) {
-            System.out.println("Handled custom exception: "+e.getMessage());
+            validateAge(15);
+        } catch (CustomException e) {
+            System.out.println("Custom exception occurred: " + e.getMessage());
+        }
+    }
+
+    public static void validateAge(int age) throws CustomException {
+        if (age < 18) {
+            throw new CustomException("Age must be at least 18.");
+        } else {
+            System.out.println("Age is valid.");
         }
     }
 }
