@@ -1,47 +1,63 @@
 package assignment.m1.password;
 
 /*
-* STUDENT HINTS
-* -------------
-* Required password checks:
-* - at least 8 characters
-* - at least one uppercase letter
-* - at least one lowercase letter
-* - at least one digit
-*
-* Suggested approach:
-* Loop through password.toCharArray() and update boolean flags.
-* Useful methods: Character.isUpperCase(), isLowerCase(), isDigit().
-*/
+ * STUDENT HINTS
+ * -------------
+ * This starter follows the Canvas Password Verifier structure.
+ * Required password checks:
+ * - at least 8 characters
+ * - at least one uppercase letter
+ * - at least one lowercase letter
+ * - at least one digit
+ *
+ * Complete the TODO sections. Do not replace the whole program.
+ */
+
 import java.util.Scanner;
 
-/** M1 Assignment: Password Verifier starter. */
+/** Module 1 Assignment: Password Verifier student starter. */
 public class PasswordVerifier {
+
+    public static boolean isValidPassword(String password) {
+
+        // TODO 1: Check whether the password has at least 8 characters.
+        // If it does not, print the Canvas-style message and return false.
+
+        boolean hasUpperCase = false;
+        boolean hasLowerCase = false;
+        boolean hasDigit = false;
+
+        // TODO 2: Loop through password.toCharArray().
+        // TODO 3: Use Character.isUpperCase(ch), isLowerCase(ch), and isDigit(ch)
+        //         to update the three boolean flags above.
+
+        /*
+         * HINT:
+         * for (char ch : password.toCharArray()) {
+         *     if (Character.isUpperCase(ch)) {
+         *         // update hasUpperCase
+         *     }
+         *     // repeat for lowercase and digit
+         * }
+         */
+
+        // TODO 4: Print a helpful message for each missing requirement.
+
+        // TODO 5: Replace this temporary return with an expression that is true
+        // only when uppercase, lowercase, and digit requirements are all met.
+        return false;
+    }
+
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Enter a password: ");
-            String password = scanner.nextLine();
-            boolean hasMinLength = false;
-            boolean hasUppercase = false;
-            boolean hasLowercase = false;
-            boolean hasDigit = false;
-            // TODO 1: Check password.length() >= 8.
-            // TODO 2: Loop through the password characters.
-            // TODO 3: Update the uppercase/lowercase/digit flags.
-            // TODO 4: Print whether the password is valid.
-            /*
-            * HINT:
-            * Character.isUpperCase(ch)
-            * Character.isLowerCase(ch)
-            * Character.isDigit(ch)
-            *
-            * ANSWER CHECKPOINT:
-            * A password is valid only when ALL four boolean conditions are true.
-            */
-            System.out.println("Minimum length met: " + hasMinLength);
-            System.out.println("Uppercase found: " + hasUppercase);
-            System.out.println("Lowercase found: " + hasLowercase);
-            System.out.println("Digit found: " + hasDigit);
-        }
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Password Verifier!");
+        System.out.print("Please enter a password to verify: ");
+        String password = scanner.nextLine();
+
+        // TODO 6: Call isValidPassword(password) and print either
+        // "The password is valid." or "The password is invalid."
+
+        scanner.close();
     }
 }
