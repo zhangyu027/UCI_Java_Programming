@@ -1,33 +1,42 @@
 package instructor.inclass.m3.polymorphism;
-interface ShapeLegacy {
+
+interface Shape {
     double area();
 }
-class CircleLegacy implements ShapeLegacy {
-    double r;
-    CircleLegacy(double r) {
-        this.r=r;
+
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
     }
+
+    @Override
     public double area() {
-        return Math.PI*r*r;
+        return Math.PI * radius * radius;
     }
 }
-class RectangleLegacy implements ShapeLegacy {
-    double w, h;
-    RectangleLegacy(double w, double h) {
-        this.w=w;
-        this.h=h;
+
+class Square implements Shape {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
     }
+
+    @Override
     public double area() {
-        return w*h;
+        return side * side;
     }
 }
+
+/** Canvas Example 2: interface polymorphism. */
 public class polymorphism {
-    public static void main(String[]a) {
-        ShapeLegacy[] s= {
-          new CircleLegacy(2), new RectangleLegacy(3, 4)   
-        };
-        for (ShapeLegacy x:s)System.out.printf("Area=%.2f%n", x.area());
+    public static void main(String[] args) {
+        Shape myShape1 = new Circle(5.0);
+        Shape myShape2 = new Square(4.0);
+
+        System.out.println("Area of Circle: " + myShape1.area());
+        System.out.println("Area of Square: " + myShape2.area());
     }
 }
-
-
