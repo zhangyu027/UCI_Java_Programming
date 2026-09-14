@@ -1,24 +1,22 @@
 package instructor.inclass.m3.basics;
 
+/** Canvas-aligned Module 3 basic class example. */
 public class Book {
-    private String title, author;
-    public Book(String t, String a) {
-        title=t;
-        author=a;
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
     }
-    public String getTitle() {
-        return title;
+
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
     }
-    public void setTitle(String x) {
-        title=x;
-    }
-    public String getAuthor() {
-        return author;
-    }
-    public void setAuthor(String x) {
-        author=x;
-    }
-    public void read() {
-        System.out.println("Reading "+title+" by "+author);
+
+    public static void main(String[] args) {
+        Book book = new Book("Core Java", "Cay Horstmann");
+        book.displayInfo();
     }
 }
