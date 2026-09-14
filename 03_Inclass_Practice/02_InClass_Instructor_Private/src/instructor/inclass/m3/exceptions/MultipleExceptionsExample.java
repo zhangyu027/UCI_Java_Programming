@@ -1,15 +1,22 @@
 package instructor.inclass.m3.exceptions;
 
+/** Canvas Example 3: Multiple Exceptions. */
 public class MultipleExceptionsExample {
     public static void main(String[] args) {
-        String value=args.length==0?"abc":args[0];
         try {
-            int n=Integer.parseInt(value);
-            System.out.println(100/n);
-        } catch (NumberFormatException e) {
-            System.out.println("Input is not an integer.");
+            int result = divide(10, 0);
+            System.out.println("Result: " + result);
         } catch (ArithmeticException e) {
-            System.out.println("Integer cannot be zero.");
+            System.out.println("Arithmetic exception occurred: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("Null pointer exception occurred: " + e.getMessage());
         }
+    }
+
+    public static int divide(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return dividend / divisor;
     }
 }
