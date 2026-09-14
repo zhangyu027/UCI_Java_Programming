@@ -1,32 +1,32 @@
 package instructor.inclass.m3.polymorphism;
 
-interface Shape {
-    double area();
-}
-class Circle implements Shape {
-    double r;
-    Circle(double r) {
-        this.r=r;
-    }
-    public double area() {
-        return Math.PI*r*r;
+class Animal {
+    public void makeSound() {
+        System.out.println("Some sound");
     }
 }
-class Rectangle implements Shape {
-    double w, h;
-    Rectangle(double w, double h) {
-        this.w=w;
-        this.h=h;
-    }
-    public double area() {
-        return w*h;
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
     }
 }
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+/** Canvas Example 1: polymorphism through method overriding. */
 public class PolymorphismDemo {
-    public static void main(String[]a) {
-        Shape[] s= {
-            new Circle(2), new Rectangle(3, 4)
-        };
-        for (Shape x:s)System.out.printf("Area=%.2f%n", x.area());
+    public static void main(String[] args) {
+        Animal myAnimal1 = new Dog();
+        Animal myAnimal2 = new Cat();
+
+        myAnimal1.makeSound();
+        myAnimal2.makeSound();
     }
 }
