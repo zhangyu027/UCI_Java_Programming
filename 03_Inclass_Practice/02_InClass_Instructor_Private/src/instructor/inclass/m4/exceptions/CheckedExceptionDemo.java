@@ -1,18 +1,20 @@
 package instructor.inclass.m4.exceptions;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-/** Demonstrates handling a checked IOException. */
+/** Canvas-aligned checked exception example using SalesData.txt. */
 public class CheckedExceptionDemo {
     public static void main(String[] args) {
-        try {
-            String text = Files.readString(
-            Path.of("data", "SalesData.txt"));
-            System.out.println(text);
-        } catch (IOException e) {
-            System.out.println("I/O error: " + e.getMessage());
+        File file = new File("data/SalesData.txt");
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + file.getPath());
         }
     }
 }
