@@ -1,26 +1,19 @@
 package inclass.m5;
 
-/*
-* IN-CLASS STUDENT HINTS - RECURSION
-* ----------------------------------
-* Write the base case first.
-* Then make the recursive call solve a smaller input.
-* Trace a small example by hand before testing a larger one.
-*/
-/** Module 5 recursion practice: palindrome. */
+/** Recursive Java program to check if a given string is a palindrome. */
 public class Palindrome {
-    static boolean isPalindrome(String text) {
-        // TODO: Add a recursive base case and recursive step.
-        /*
-        * HINT:
-        * Base case: length 0 or 1 -> true.
-        * Recursive case:
-        *   first character must equal last character
-        *   AND the middle substring must be a palindrome.
-        */
+
+    public static boolean isPalindrome(String str, int start, int end) {
+        // TODO: Base case
+        // TODO: Recursive case
         return false;
     }
+
     public static void main(String[] args) {
-        System.out.println("TODO: test recursive palindrome logic.");
+        String testStr = "racecar";
+
+        // TODO: Call isPalindrome(testStr, 0, testStr.length() - 1)
+        // and print whether the string is a palindrome.
+        System.out.println("TODO: check whether " + testStr + " is a palindrome.");
     }
 }
