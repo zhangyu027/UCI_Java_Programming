@@ -1,16 +1,18 @@
 package assignments.m5.recursion;
 
-/** M5 Assignment: recursively generate character combinations. */
+/** Recursive Java program to generate all combinations of characters in a string. */
 public class CombinationGenerator {
+
     public static void generateCombinations(String input, String current, int index) {
-        // TODO: Add the base case.
-        // TODO: Add recursive calls that include/exclude the current character.
-        /* HINT: stop at input.length(); then try include and exclude branches. */
+        // TODO: Base case
+        // TODO: Recursive case - exclude the current character
+        // TODO: Recursive case - include the current character
     }
 
     public static void main(String[] args) {
-        String input = "ABC";
+        String input = "xyz";
+
+        System.out.println("Combinations of string \"" + input + "\":");
         // TODO: Call generateCombinations(input, "", 0).
-        System.out.println("M5 Recursion starter ready for input: " + input);
     }
 }
