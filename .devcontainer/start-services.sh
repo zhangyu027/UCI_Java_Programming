@@ -34,7 +34,9 @@ fi
 
 # Always ensure exactly one healthy x11vnc server is attached to DISPLAY=:1.
 # Binding to localhost is sufficient because noVNC connects from inside the container.
-if ! ss -ltn 2>/dev/null | grep -q ':5900 '; then
+VNC_RESTARTED=0
+
+if ! ss -ltn 2>/dev/null | grep -q '127.0.0.1:5900'; then
   pkill -f "x11vnc.*5900" >/dev/null 2>&1 || true
   nohup x11vnc \
     -display :1 \
@@ -45,11 +47,12 @@ if ! ss -ltn 2>/dev/null | grep -q ':5900 '; then
     -rfbport 5900 \
     -noxdamage \
     >/tmp/uci-x11vnc.log 2>&1 &
+  VNC_RESTARTED=1
 fi
 
 VNC_READY=0
 for _ in {1..40}; do
-  if ss -ltn 2>/dev/null | grep -q ':5900 '; then
+  if ss -ltn 2>/dev/null | grep -q '127.0.0.1:5900'; then
     VNC_READY=1
     break
   fi
@@ -57,13 +60,15 @@ for _ in {1..40}; do
 done
 
 if [ "$VNC_READY" -ne 1 ]; then
-  echo "ERROR: x11vnc did not become ready on port 5900."
+  echo "ERROR: x11vnc did not become ready on 127.0.0.1:5900."
   cat /tmp/uci-x11vnc.log 2>/dev/null || true
   exit 1
 fi
 
-# Use noVNC's packaged launcher. Restart it if port 6080 is not currently listening.
-if ! ss -ltn 2>/dev/null | grep -q ':6080 '; then
+# Use noVNC's packaged launcher.
+# Restart noVNC when its port is missing OR whenever x11vnc had to be restarted,
+# so the browser proxy cannot remain attached to a stale VNC backend.
+if [ "$VNC_RESTARTED" -eq 1 ] || ! ss -ltn 2>/dev/null | grep -q ':6080 '; then
   pkill -f "websockify.*6080" >/dev/null 2>&1 || true
   pkill -f "novnc_proxy.*6080" >/dev/null 2>&1 || true
   nohup /usr/share/novnc/utils/novnc_proxy \
