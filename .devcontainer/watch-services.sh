@@ -2,10 +2,9 @@
 set -u
 
 export DISPLAY=:1
+cd /workspaces/UCI_Java_Programming
 
 # Keep the classroom Swing desktop healthy for the lifetime of the Codespace.
-# If either the VNC backend (5900) or the noVNC browser endpoint (6080) dies,
-# rerun the normal startup script to repair the chain automatically.
 while true; do
   NEED_REPAIR=0
 
