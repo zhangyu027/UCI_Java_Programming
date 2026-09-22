@@ -5,7 +5,8 @@ set -euo pipefail
 sudo service mariadb start >/dev/null 2>&1 || true
 
 # Codespaces has no physical display. Xvfb provides a virtual X11 display,
-# x11vnc exposes it on localhost:5900, and noVNC exposes a browser UI on 6080.
+# x11vnc exposes it internally on localhost:5900, and noVNC exposes the
+# browser desktop on 6080.
 export DISPLAY=:1
 
 if ! pgrep -f "Xvfb :1" >/dev/null 2>&1; then
@@ -32,10 +33,8 @@ if ! pgrep -f "openbox" >/dev/null 2>&1; then
   nohup env DISPLAY=:1 openbox-session >/tmp/uci-openbox.log 2>&1 &
 fi
 
-# Always ensure exactly one healthy x11vnc server is attached to DISPLAY=:1.
-# Binding to localhost is sufficient because noVNC connects from inside the container.
+# Port 5900 is an internal backend. Students should open only port 6080.
 VNC_RESTARTED=0
-
 if ! ss -ltn 2>/dev/null | grep -q '127.0.0.1:5900'; then
   pkill -f "x11vnc.*5900" >/dev/null 2>&1 || true
   nohup x11vnc \
@@ -65,21 +64,21 @@ if [ "$VNC_READY" -ne 1 ]; then
   exit 1
 fi
 
-# Use noVNC's packaged launcher.
-# Restart noVNC when its port is missing OR whenever x11vnc had to be restarted,
-# so the browser proxy cannot remain attached to a stale VNC backend.
+# Serve noVNC explicitly from its installed web root. Restart the browser
+# proxy whenever its backend was repaired or its own port is unavailable.
 if [ "$VNC_RESTARTED" -eq 1 ] || ! ss -ltn 2>/dev/null | grep -q ':6080 '; then
   pkill -f "websockify.*6080" >/dev/null 2>&1 || true
   pkill -f "novnc_proxy.*6080" >/dev/null 2>&1 || true
-  nohup /usr/share/novnc/utils/novnc_proxy \
-    --listen 6080 \
-    --vnc 127.0.0.1:5900 \
+  nohup websockify \
+    --web=/usr/share/novnc \
+    6080 \
+    127.0.0.1:5900 \
     >/tmp/uci-novnc.log 2>&1 &
 fi
 
 NOVNC_READY=0
 for _ in {1..40}; do
-  if curl -fsS http://127.0.0.1:6080/vnc.html >/dev/null 2>&1; then
+  if curl -fsS http://127.0.0.1:6080/vnc_auto.html >/dev/null 2>&1; then
     NOVNC_READY=1
     break
   fi
@@ -92,8 +91,13 @@ if [ "$NOVNC_READY" -ne 1 ]; then
   exit 1
 fi
 
+# Keep the VNC/noVNC chain alive after startup. Only one watchdog is allowed.
+if [ "${UCI_NO_WATCHDOG:-0}" != "1" ] && ! pgrep -f "[w]atch-services.sh" >/dev/null 2>&1; then
+  nohup bash .devcontainer/watch-services.sh >/tmp/uci-watch-services.log 2>&1 &
+fi
+
 echo "MariaDB started."
 echo "Swing display available on DISPLAY=:1."
-echo "x11vnc is ready on 127.0.0.1:5900."
+echo "x11vnc is ready internally on 127.0.0.1:5900."
 echo "noVNC is ready on port 6080."
-echo "Open port 6080 from the Codespaces Ports tab."
+echo "Open only port 6080 (Swing Desktop) from the Codespaces Ports tab."
