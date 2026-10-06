@@ -32,10 +32,40 @@ public class TaskTrackerApp {
         JButton viewTasksButton = new JButton("View Tasks");
         JButton exitButton = new JButton("Exit");
         addTaskButton.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { showPanel(addTaskPanel); }});
-        viewTasksButton.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { /* TODO: refresh task display */ showPanel(viewTasksPanel); }});
+        viewTasksButton.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { refreshTaskDisplay(); showPanel(viewTasksPanel); }});
         exitButton.addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { System.exit(0); }});
         mainMenuPanel.add(addTaskButton); mainMenuPanel.add(viewTasksButton); mainMenuPanel.add(exitButton);
     }
+
+    private void refreshTaskDisplay() {
+        viewTasksPanel.removeAll();
+        viewTasksPanel.setLayout(
+                new BoxLayout(viewTasksPanel, BoxLayout.Y_AXIS));
+
+        for (Task task : tasks) {
+            JLabel taskLabel = new JLabel(
+                    task.getTitle()
+                            + " | "
+                            + task.getDescription()
+                            + " | Due: "
+                            + dateFormat.format(task.getDueDate())
+            );
+
+            viewTasksPanel.add(taskLabel);
+        }
+
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showPanel(mainMenuPanel);
+            }
+        });
+        viewTasksPanel.add(backButton);
+        viewTasksPanel.revalidate();
+        viewTasksPanel.repaint();
+
+    }
+
     private void createAddTaskPanel() {
         addTaskPanel = new JPanel(new GridLayout(4, 2));
         titleField = new JTextField(20); descriptionField = new JTextField(20); dueDateField = new JTextField(20);
